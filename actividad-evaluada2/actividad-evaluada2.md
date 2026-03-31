@@ -10,7 +10,7 @@
 
 ## Estructura de la tarea
 
-* `arbol-de-decision/`: Contiene el la imagen del árbol de decisión para la tarea.
+* `arbol-de-decision/`: Contiene la imagen del árbol de decisión para la tarea.
 * `documento/`: Contiene el documento entregable de la tarea.
 * `capturas/`: Contiene las capturas de pantalla de la ejecución del programa.
 * `sistema-catalogo-inventario-v1/`: Fichas generadas desde código Java.
