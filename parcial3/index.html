@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestor de Inventario</title>
+  <link rel="stylesheet" href="./css/styles.css"/>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Gestor de Inventario</h1>
+    <p class="subtitle">Listas multinivel + Exportación CSV / HTML / XML</p>
+  </header>
+
+  <main class="container">
+    <!-- ======= Formulario Agregar Producto ======= -->
+    <section class="card">
+      <h2>Agregar producto</h2>
+      <form id="productForm" class="grid-form">
+        <div class="field">
+          <label>Tipo</label>
+          <input id="typeInput" type="text" placeholder="Ej: Laptop, Teclado, Proteína" required />
+        </div>
+        <div class="field">
+          <label>Marca</label>
+          <input id="brandInput" type="text" placeholder="Ej: Dell, Logitech, Optimum" required />
+        </div>
+        <div class="field">
+          <label>Modelo</label>
+          <input id="modelInput" type="text" placeholder="Ej: Inspiron 15, G Pro, Gold Standard" required />
+        </div>
+
+        <div class="field">
+          <label>Nombre del producto</label>
+          <input id="nameInput" type="text" placeholder="Ej: Laptop 16GB RAM" required />
+        </div>
+        <div class="field">
+          <label>Cantidad</label>
+          <input id="qtyInput" type="number" min="0" step="1" value="1" required />
+        </div>
+        <div class="field">
+          <label>Precio (USD)</label>
+          <input id="priceInput" type="number" min="0" step="0.01" value="0" required />
+        </div>
+
+        <div class="field full">
+          <label>Descripción (opcional)</label>
+          <input id="descInput" type="text" placeholder="Detalles cortos del producto..." />
+        </div>
+
+        <div class="actions full">
+          <button class="btn primary" type="submit">Agregar</button>
+          <button class="btn ghost" type="button" id="seedBtn">Cargar ejemplo</button>
+          <button class="btn danger" type="button" id="clearBtn">Vaciar inventario</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ======= Filtros + Exportación ======= -->
+    <section class="card">
+      <h2>Filtros</h2>
+      <div class="filters">
+        <div class="field">
+          <label>Tipo</label>
+          <select id="typeFilter">
+            <option value="">Todos</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Marca</label>
+          <select id="brandFilter" disabled>
+            <option value="">Todas</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Modelo</label>
+          <select id="modelFilter" disabled>
+            <option value="">Todos</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label>Búsqueda rápida</label>
+          <input id="searchInput" type="text" placeholder="Buscar por nombre o descripción..." />
+        </div>
+      </div>
+
+      <hr class="sep"/>
+
+      <h2>Exportar</h2>
+      <p class="muted">
+        Se exporta lo que ves en la tabla (inventario completo o filtrado).
+      </p>
+      <div class="export-bar">
+        <button class="btn" id="exportCsvBtn">Exportar CSV</button>
+        <button class="btn" id="exportHtmlBtn">Exportar HTML</button>
+        <button class="btn" id="exportXmlBtn">Exportar XML</button>
+      </div>
+    </section>
+
+    <!-- ======= Tabla ======= -->
+    <section class="card">
+      <div class="table-header">
+        <h2>Inventario</h2>
+        <div class="stats" id="stats"></div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="inventoryTable">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Producto</th>
+              <th>Cant.</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>Inventario Web · JS Vanilla · Exportación de datos</small>
+  </footer>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
